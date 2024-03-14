@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script type="text/javascript" src="main.js"></script>
+    <title>Key Detection(KONAMI)</title>
+  </head>
+  <body>
+    <style>
+      h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        font-size: 30px;
+        text-transform: capitalize;
+      }
+      span {
+        text-transform: lowercase;
+        color: goldenrod;
+        background-color: black;
+        padding: 5px 10px;
+        border-radius: 10px;
+        border: 2px solid white;
+        outline: 2px solid black;
+      }
+    </style>
+    <h1>
+      Type The Secret Key With Keyboard <span>ahmedwael</span> and then pressed
+      any button
+    </h1>
+    <script>
+      let pressed = [];
+      let secretCode = "ahmedwael";
+      window.addEventListener("keyup", (e) => {
+        pressed.push(e.key);
+        pressed.splice(pressed.length - 1, pressed.length - secretCode.length);
+        if (pressed.join("").includes(secretCode)) {
+          console.log("Found secret");
+          cornify_add();
+        }
+        console.log(pressed);
+      });
+    </script>
+  </body>
+</html>
